@@ -20,14 +20,21 @@ window.addEventListener('DOMContentLoaded', function() {
         const 
             modalTrigger = document.querySelectorAll(triggerSelector),
             modal = document.querySelector(modalSelector);
+            email = document.getElementById('emai'),
+            passwd = document.getElementById('passwd');
 
         modalTrigger.forEach(btn => {
-            btn.addEventListener('click', () => openModal(modalSelector));
+            btn.addEventListener('click', () => {
+                openModal(modalSelector)
+
+            });
         });
 
         modal.addEventListener('click', (e) => {
             if (e.target === modal || e.target.getAttribute('data-close') == "") {
                 closeModal(modalSelector);
+                email.value = '';
+                passwd.value = '';
             }
         });
 
